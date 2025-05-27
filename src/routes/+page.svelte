@@ -14,16 +14,18 @@
   import { currentUser, isEditing } from '$lib/stores.js';
   import WebsiteHeader from '$lib/components/WebsiteHeader.svelte';
 
+  import Logo from "$lib/assets/TWI_1.svg";
+
   export let data;
 
   // --------------------------------------------------------------------------
   // DEFAULT PAGE CONTENT - AJDUST TO YOUR NEEDS
   // --------------------------------------------------------------------------
-  const EMAIL = 'michael@letsken.com';
+  const EMAIL = 'thomas.wood@tdwood.us';
 
   // Can contain spaces but must not contain the + sign
-  const PHONE_NUMBER = '43 664 1533015';
-
+  const PHONE_NUMBER = '208 298 7700';
+/**
   const FAQS_PLACEHOLDER = `
 		<h2>Question 1</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mi lectus, pellentesque nec urna eget, pretium dictum arcu. In rutrum pretium leo, id efficitur nisl ullamcorper sit amet.</p>
@@ -44,7 +46,7 @@
       name: 'Jane Doe · jane-doe.org'
     }
   ];
-
+*/
   let title,
     testimonials,
     faqs,
@@ -177,10 +179,11 @@
 </script>
 
 <svelte:head>
-  <title>Make your website editable</title>
-  <meta name="description" content="Make changes to your website while browsing it." />
-  <link rel="alternate" hreflang="en" href="https://editable.website" />
-  <link rel="canonical" href="https://editable.website" />
+  <title>Thomas' Portfolio</title>
+  <meta name="description" content="Thomas' Website of Projects" />
+  <link rel="icon" type="image/svg" href={Logo} />
+  <!--<link rel="alternate" hreflang="en" href="https://editable.website" />
+  <link rel="canonical" href="https://editable.website" /> -->
 </svelte:head>
 
 <WebsiteHeader bind:showUserMenu on:cancel={initOrReset} on:save={savePage}>
@@ -191,6 +194,7 @@
 <div>
   <div class="max-w-screen-md mx-auto px-6 pt-12 sm:pt-24">
     <NotEditable>
+      <!--
       <svg
         class="pb-8 w-14 sm:w-24 mx-auto"
         viewBox="0 0 200 200"
@@ -200,21 +204,23 @@
         <path d="M164 110L64 163.768V200L164 147.059V110Z" fill="#111827" />
         <path d="M136 66L36 119.768V156L136 103.059V66Z" fill="#111827" />
         <path d="M164 0L64 53.7684V90L164 37.0588V0Z" fill="#111827" />
-      </svg>
+      </svg> -->
+      <img src={Logo} alt="Never Gonna Give You Up" class="pb-8 w-14 sm:w-24 mx-auto"/>
+
     </NotEditable>
     <h1 class="text-4xl md:text-7xl font-bold text-center">
       <PlainText bind:content={title} />
     </h1>
-    <NotEditable>
-      <div class="text-center pt-8 pb-4 bounce text-xl">↓</div>
+    <!--<NotEditable>
+     <div class="text-center pt-8 pb-4 bounce text-xl">↓</div>
       <div class="text-center">
         <PrimaryButton size="lg" type="button" on:click={toggleEdit}>Edit</PrimaryButton>
       </div>
-    </NotEditable>
+    </NotEditable> -->
   </div>
 </div>
 
-<div class="pt-12 md:pt-24 border-gray-100 border-b-2">
+<!--<div class="pt-12 md:pt-24 border-gray-100 border-b-2">
   <div class="max-w-screen-md mx-auto px-6">
     <div class="relative">
       <div class="w-1 bg-gray-900 absolute inset-0 -top-8 bottom-12 mx-auto z-0">
@@ -244,8 +250,8 @@
       >
     </div>
   </div>
-</div>
-
+</div> -->
+<!--
 <div class="bg-white pb-6 sm:pb-12">
   <div class="max-w-screen-md mx-auto px-6">
     <div class="font-bold text-sm sm:text-base py-12 sm:pt-24 pb-8">WHAT PEOPLE SAY</div>
@@ -267,7 +273,7 @@
     </div>
   {/if}
 </div>
-
+-->
 {#if data.articles.length > 0}
   <NotEditable>
     <div class="bg-white border-t-2 border-gray-100 pb-10 sm:pb-16">
@@ -282,6 +288,7 @@
 {/if}
 
 <!-- Bio -->
+
 <div id="contact" class="bg-white border-t-2 border-b-2 border-gray-100 pb-12 sm:pb-24">
   <div class="max-w-screen-md mx-auto px-6">
     <div class="pt-12 sm:pt-24 pb-12 text-center">
@@ -310,7 +317,7 @@
       <div class="flex flex-col sm:flex-row sm:space-x-6 md:space-x-8 space-y-4 sm:space-y-0">
         <PrimaryButton size="lg" href={`mailto:${EMAIL}`}>Email</PrimaryButton>
         <SecondaryButton size="lg" href={`https://wa.me/${PHONE_NUMBER.replace(/\s+/g, '')}`}>
-          WhatsApp (+{PHONE_NUMBER})
+          WhatsApp ({PHONE_NUMBER})
         </SecondaryButton>
       </div>
     </NotEditable>
@@ -318,6 +325,7 @@
 </div>
 
 <!-- FAQs -->
+<!--
 <div class="bg-white">
   <div class="max-w-screen-md mx-auto px-6">
     <div class="font-bold text-sm sm:text-base pt-12 sm:pt-24 -mb-6 md:-mb-12">FAQs</div>
@@ -326,5 +334,5 @@
     </div>
   </div>
 </div>
-
+-->
 <Footer counter="/" />
